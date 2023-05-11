@@ -19,7 +19,7 @@ public class UsuarioREST {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
+    @GetMapping("/allUser")
     @Operation(summary = "Obtiene todos los usuarios de nuestra aplicacion",
     description = "Mediante la consulta en nuestra base de datos, devuelve toda la lista de los usuarios de HiKeebs")
     public List<Usuario> getAll(){
