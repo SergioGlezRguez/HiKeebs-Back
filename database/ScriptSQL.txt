@@ -2,11 +2,11 @@
 CREATE DATABASE hikeebs;
 
 -- Usar la base de datos
-USE MiTienda;
+USE hikeebs;
 
 -- Crear la tabla Usuario
 CREATE TABLE Usuario (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
   direccion VARCHAR(100) NOT NULL,
   telefono VARCHAR(15) NOT NULL
@@ -14,7 +14,7 @@ CREATE TABLE Usuario (
 
 -- Crear la tabla Producto
 CREATE TABLE Producto (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
   descripcion VARCHAR(200),
   precio DECIMAL(10, 2) NOT NULL
@@ -22,7 +22,7 @@ CREATE TABLE Producto (
 
 -- Crear la tabla Carrito de la compra
 CREATE TABLE CarritoCompra (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT,
   producto_id INT,
   cantidad INT,
@@ -32,7 +32,7 @@ CREATE TABLE CarritoCompra (
 
 -- Crear la tabla Factura
 CREATE TABLE Factura (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT,
   fecha DATE NOT NULL,
   total DECIMAL(10, 2) NOT NULL,
