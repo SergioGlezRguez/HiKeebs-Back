@@ -2,11 +2,11 @@
 CREATE DATABASE hikeebs;
 
 -- Usar la base de datos
-USE MiTienda;
+USE hikeebs;
 
 -- Crear la tabla Usuario
 CREATE TABLE Usuario (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
   direccion VARCHAR(100) NOT NULL,
   telefono VARCHAR(15) NOT NULL
@@ -14,15 +14,16 @@ CREATE TABLE Usuario (
 
 -- Crear la tabla Producto
 CREATE TABLE Producto (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
   descripcion VARCHAR(200),
+  cantidad INT,
   precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Crear la tabla Carrito de la compra
 CREATE TABLE CarritoCompra (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT,
   producto_id INT,
   cantidad INT,
@@ -32,9 +33,37 @@ CREATE TABLE CarritoCompra (
 
 -- Crear la tabla Factura
 CREATE TABLE Factura (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   usuario_id INT,
   fecha DATE NOT NULL,
   total DECIMAL(10, 2) NOT NULL,
   FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
 );
+
+INSERT INTO Usuario (nombre, direccion, telefono) VALUES
+('John Doe', '123 Main Street', '123-456-7890'),
+('Jane Smith', '456 Elm Street', '987-654-3210'),
+('David Johnson', '789 Oak Avenue', '555-123-4567'),
+('Emily Brown', '321 Pine Road', '777-888-9999'),
+('Michael Davis', '654 Maple Lane', '111-222-3333');
+
+INSERT INTO Producto (nombre, descripcion, cantidad, precio) VALUES
+('Camiseta', 'Camiseta de algodón', 10, 19.99),
+('Pantalones', 'Pantalones vaqueros', 5, 39.99),
+('Zapatos', 'Zapatos de cuero', 3, 79.99),
+('Bolso', 'Bolso de mano', 8, 29.99),
+('Reloj', 'Reloj de pulsera', 2, 99.99);
+
+INSERT INTO CarritoCompra (usuario_id, producto_id, cantidad) VALUES
+(1, 2, 3),
+(2, 4, 2),
+(3, 1, 1),
+(4, 3, 4),
+(5, 2, 2);
+
+INSERT INTO Factura (usuario_id, fecha, total) VALUES
+(1, '2023-05-01', 99.99),
+(2, '2023-05-02', 59.99),
+(3, '2023-05-03', 129.99),
+(4, '2023-05-04', 89.99),
+(5, '2023-05-05', 149.99);
