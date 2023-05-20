@@ -2,8 +2,10 @@ package es.cifpcm.hikeebs.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "carritocompra")
 public class CarritoCompra {
     @Id
     private Integer id;
