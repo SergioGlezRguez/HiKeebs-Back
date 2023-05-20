@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/v2/producto")
 public class ProductoREST {
     @Autowired
     private ProductoService proService;
 
-    @GetMapping("/allUser")
+    @GetMapping("/allProducts")
     public List<Producto> getAll(){
         return proService.findAll();
     }
