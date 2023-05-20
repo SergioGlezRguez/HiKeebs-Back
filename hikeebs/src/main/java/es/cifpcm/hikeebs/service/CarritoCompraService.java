@@ -3,10 +3,12 @@ package es.cifpcm.hikeebs.service;
 import es.cifpcm.hikeebs.entity.CarritoCompra;
 import es.cifpcm.hikeebs.repository.CarritoCompraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CarritoCompraService implements GenericService<CarritoCompra, Integer>{
     @Autowired
     CarritoCompraRepository carRepo;
